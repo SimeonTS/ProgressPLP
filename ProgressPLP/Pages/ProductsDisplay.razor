@@ -1,0 +1,28 @@
+﻿@page "/"
+<link rel="stylesheet" href="css/products-style.css" />
+
+<h3>Products Display</h3>
+
+<div class="product-grid">
+    @foreach (var product in ProductsList.ExampleProducts)
+    {
+        <div class="product-card">
+            <div class="product-image-container">
+                <img src="images/@product.ImageFileName" alt="@product.ProductName" class="product-image" />
+            </div>
+            @if (product.UnitInStock == 0)
+            {
+                <div class="out-of-stock-overlay">
+                    <p>Out of Stock</p>
+                </div>
+            }
+           
+            <div class="product-details">
+                <h4 class="product-name">@product.ProductName</h4>
+                <p class="product-price">Price:$@product.UnitPrice.ToString("F2")</p>
+            </div>
+        </div>
+    }
+</div>
+
+
